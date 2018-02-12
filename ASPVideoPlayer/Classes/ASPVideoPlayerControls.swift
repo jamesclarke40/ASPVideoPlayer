@@ -288,6 +288,12 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
         playPauseButton.isSelected = false
         pause()
     }
+    
+    open var resizeButtonIsHidden:Bool = false {
+        didSet {
+            resizeButton.isHidden = resizeButtonIsHidden
+        }
+    }
 
     private func setupVideoPlayerView() {
         if let videoPlayerView = videoPlayer {
@@ -438,14 +444,9 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
         addSubview(currentTimeLabel)
         addSubview(lengthLabel)
         addSubview(resizeButton)
+        resizeButton.isHidden = true
 
         setupLayout()
-    }
-
-    var resizeButtonIsHidden:Bool = false {
-        didSet {
-            resizeButton.isHidden = resizeButtonIsHidden
-        }
     }
 
     private func setupLayout() {
