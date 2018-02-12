@@ -319,13 +319,13 @@ import AVFoundation
     /**
      Starts the video player from the beginning.
      */
-    open func playVideo() {
+    open func playVideo(_ atRate:Float? = nil) {
         if progress >= 1.0 {
             seekToZero()
         }
 
         status = .playing
-        videoPlayerLayer.player?.rate = 1.0
+        videoPlayerLayer.player?.rate = atRate ?? (videoPlayerLayer.player?.rate ?? 1.0)
         startedVideo?()
 
         NotificationCenter.default.removeObserver(self)
