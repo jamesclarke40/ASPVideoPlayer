@@ -442,7 +442,7 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
         setupLayout()
     }
 
-    var resizeButtonIsHidden:Bool {
+    var resizeButtonIsHidden:Bool = false {
         didSet {
             resizeButton.isHidden = resizeButtonIsHidden
         }
