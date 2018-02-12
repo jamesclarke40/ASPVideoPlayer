@@ -442,6 +442,12 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
         setupLayout()
     }
 
+    var resizeButtonIsHidden:Bool {
+        didSet {
+            resizeButton.isHidden = resizeButtonIsHidden
+        }
+    }
+
     private func setupLayout() {
         let viewsDictionary: [String : Any] = ["playPauseButton":playPauseButton,
                                                "progressSlider":progressSlider,
