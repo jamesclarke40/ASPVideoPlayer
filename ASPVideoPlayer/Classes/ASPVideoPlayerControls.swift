@@ -391,8 +391,16 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
         let seconds = totalSeconds % 60
         let minutes = (totalSeconds / 60) % 60
         let hours = totalSeconds / 3600
-
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        
+        var formatted = ""
+        
+        if hours > 0 {
+            formatted = String(format: "%01d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            formatted = String(format: "%01d:%02d", minutes, seconds)
+        }
+        
+        return formatted
     }
 
     private func commonInit() {
@@ -420,11 +428,11 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
 
         currentTimeLabel.textColor = tintColor
         currentTimeLabel.textAlignment = .center
-        currentTimeLabel.font = UIFont(name: "Courier-Bold", size: 12.0)
+        currentTimeLabel.font = UIFont.systemFont(ofSize: 12)
 
         lengthLabel.textColor = tintColor
         lengthLabel.textAlignment = .center
-        lengthLabel.font = UIFont(name: "Courier-Bold", size: 12.0)
+        lengthLabel.font = UIFont.systemFont(ofSize: 12)
 
         resizeButton.backgroundColor = .clear
         resizeButton.tintColor = tintColor

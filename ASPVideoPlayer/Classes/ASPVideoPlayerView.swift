@@ -325,7 +325,7 @@ import AVFoundation
         }
         
         status = .playing
-        videoPlayerLayer.player?.rate = videoPlayerLayer.player!.rate > Float(1) ? videoPlayerLayer.player!.rate : atRate
+        videoPlayerLayer.player?.rate = atRate
         startedVideo?()
 
         NotificationCenter.default.removeObserver(self)
