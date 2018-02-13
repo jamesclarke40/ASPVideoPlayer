@@ -86,11 +86,7 @@ public extension VideoPlayerControls {
     func play() {
         videoPlayer?.playVideo()
     }
-
-    func play(atRate:Float) {
-        videoPlayer?.playVideo(atRate)
-    }
-
+    
     func pause() {
         videoPlayer?.pauseVideo()
     }

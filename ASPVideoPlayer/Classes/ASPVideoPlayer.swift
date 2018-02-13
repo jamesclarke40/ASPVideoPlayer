@@ -64,6 +64,18 @@ A video player implementation with basic functionality.
 			return videoPlayerView.gravity
 		}
 	}
+    
+    /**
+     The chosen rate to playback the video
+     */
+    open var preferredPlaybackRate: Float {
+        set {
+            videoPlayerView.preferredPlaybackRate = newValue
+        }
+        get {
+            return videoPlayerView.preferredPlaybackRate
+        }
+    }
 	
 	/**
 	Sets whether the playlist should loop. Once the last video has finished playing, the first one will start.

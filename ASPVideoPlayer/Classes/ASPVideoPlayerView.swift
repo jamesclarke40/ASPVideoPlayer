@@ -272,6 +272,8 @@ import AVFoundation
 
     //MARK: - Private Variables and Constants -
 
+    var preferredPlaybackRate:Float = 1.0
+    
     private let videoPlayerLayer: AVPlayerLayer = AVPlayerLayer()
 
     private var animationForwarder: AnimationForwarder!
@@ -319,13 +321,13 @@ import AVFoundation
     /**
      Starts the video player from the beginning.
      */
-    open func playVideo(_ atRate:Float = 1.0) {
+    open func playVideo() {
         if progress >= 1.0 {
             seekToZero()
         }
         
         status = .playing
-        videoPlayerLayer.player?.rate = atRate
+        videoPlayerLayer.player?.rate = preferredPlaybackRate
         startedVideo?()
 
         NotificationCenter.default.removeObserver(self)
