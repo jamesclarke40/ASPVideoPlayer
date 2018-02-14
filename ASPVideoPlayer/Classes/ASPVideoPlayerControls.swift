@@ -43,6 +43,18 @@ public protocol VideoPlayerControls {
      - Parameter value: The amount by which the current progress percentage will be decreased.
      */
     func jumpBackward(_ value: Double)
+    
+    /**
+     Jumps forward in the video playback.
+     - Parameter value: The amount in sec current progress will be increased.
+     */
+    func jumpForwardIn(_ sec: Double)
+    
+    /**
+     Jumps backwards in the video playback.
+     - Parameter value: The amount in sec current progress will be decreased.
+     */
+    func jumpBackwardIn(_ sec: Double)
 
     /**
      Set the volume of the video.
@@ -106,6 +118,18 @@ public extension VideoPlayerControls {
         if let currentPercentage = videoPlayer?.progress {
             let newPercentage = min(1.0, max(0.0, currentPercentage - value))
             videoPlayer?.seek(newPercentage)
+        }
+    }
+    
+    func jumpForwardIn(_ sec: Double = 10) {
+        if let duration = videoPlayer?.videoLength {
+            jumpForward(sec/duration)
+        }
+    }
+    
+    func jumpBackwardIn(_ sec: Double = 10) {
+        if let duration = videoPlayer?.videoLength {
+            jumpBackward(sec/duration)
         }
     }
 

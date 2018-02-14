@@ -142,7 +142,8 @@ A video player implementation with basic functionality.
 	//MARK: - Private methods -
 	
 	@objc internal func toggleControls() {
-		if videoPlayerControls.alpha == 1.0 && videoPlayerView.status == .playing {
+		
+        if videoPlayerControls.alpha == 1.0 && videoPlayerView.status == .playing {
 			hideControls()
 		} else {
 			NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(ASPVideoPlayer.hideControls), object: nil)
@@ -151,7 +152,7 @@ A video player implementation with basic functionality.
 			if videoPlayerView.status == .playing {
 				perform(#selector(ASPVideoPlayer.hideControls), with: nil, afterDelay: 3.0)
 			}
-		}
+        }
 	}
 	
 	internal func showControls() {
